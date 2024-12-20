@@ -1,0 +1,27 @@
+# ninja log v6
+1	264	7563718815720125	build.ninja	8970e2754d378956
+24	254	7563553067818058	CMakeFiles/TSP_3.dir/Source/Class/SimulatedAnnealing.cpp.obj	dbfd8c3b97436c76
+5	570	7563553067617675	CMakeFiles/TSP_3.dir/Source/Libraries/ini.cpp.obj	f1193953250a37fe
+11	2009	7563717116884801	CMakeFiles/TSP_3.dir/Source/Class/Run.cpp.obj	1af800959a76c2f5
+8	1485	7563553067657287	CMakeFiles/TSP_3.dir/Source/Libraries/INIReader.cpp.obj	e4cb3fc6481ba214
+16	2835	7563717116924800	CMakeFiles/TSP_3.dir/Source/Class/TabuSearch.cpp.obj	a733db1ca3920169
+116	2606	7563708386292787	CMakeFiles/TSP_3.dir/Source/Class/NearestNeighbour.cpp.obj	df2aabf2a7646a65
+5	1944	7563717320175474	CMakeFiles/TSP_3.dir/Source/Class/main.cpp.obj	ed32c86685ca1722
+1944	2191	7563717339563499	TSP_3.exe	78fc590ffe557622
+18	2483	7563784328952519	CMakeFiles/TSP_3.dir/Source/Class/NearestNeighbour.cpp.obj	df2aabf2a7646a65
+14	2632	7563784328916714	CMakeFiles/TSP_3.dir/Source/Class/Run.cpp.obj	1af800959a76c2f5
+6	2726	7563784328836440	CMakeFiles/TSP_3.dir/Source/Class/main.cpp.obj	ed32c86685ca1722
+28	3446	7563784329057625	CMakeFiles/TSP_3.dir/Source/Class/SimulatedAnnealing.cpp.obj	dbfd8c3b97436c76
+23	3587	7563784328997260	CMakeFiles/TSP_3.dir/Source/Class/TabuSearch.cpp.obj	a733db1ca3920169
+6	2521	7563785148889158	CMakeFiles/TSP_3.dir/Source/Class/SimulatedAnnealing.cpp.obj	dbfd8c3b97436c76
+2521	2760	7563785174050373	TSP_3.exe	78fc590ffe557622
+6	1851	7563785617210609	CMakeFiles/TSP_3.dir/Source/Class/Run.cpp.obj	1af800959a76c2f5
+1852	2104	7563785635657442	TSP_3.exe	78fc590ffe557622
+6	2607	7563787471287432	CMakeFiles/TSP_3.dir/Source/Class/SimulatedAnnealing.cpp.obj	dbfd8c3b97436c76
+2607	2849	7563787497308794	TSP_3.exe	78fc590ffe557622
+6	2594	7563787729119364	CMakeFiles/TSP_3.dir/Source/Class/SimulatedAnnealing.cpp.obj	dbfd8c3b97436c76
+2594	2839	7563787754998568	TSP_3.exe	78fc590ffe557622
+6	2520	7563789812754429	CMakeFiles/TSP_3.dir/Source/Class/SimulatedAnnealing.cpp.obj	dbfd8c3b97436c76
+2520	2769	7563789837895232	TSP_3.exe	78fc590ffe557622
+5	1846	7563793887139721	CMakeFiles/TSP_3.dir/Source/Class/Run.cpp.obj	1af800959a76c2f5
+1847	2089	7563793905550494	TSP_3.exe	78fc590ffe557622

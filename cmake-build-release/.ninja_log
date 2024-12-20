@@ -1,0 +1,24 @@
+# ninja log v6
+27	81	7563719006973409	CMakeFiles/TSP_3.dir/Source/Class/SimulatedAnnealing.cpp.obj	56066f43908b803a
+8	174	7563719006782068	CMakeFiles/TSP_3.dir/Source/Libraries/ini.cpp.obj	e4da1ddb754d46ee
+12	1410	7563719006817229	CMakeFiles/TSP_3.dir/Source/Libraries/INIReader.cpp.obj	e0bfe2854638c46d
+19	2297	7563719006889989	CMakeFiles/TSP_3.dir/Source/Class/NearestNeighbour.cpp.obj	31713ae0c8981904
+15	2389	7563719006860003	CMakeFiles/TSP_3.dir/Source/Class/Run.cpp.obj	10dd49c0680c305a
+2	2567	7563719006726875	CMakeFiles/TSP_3.dir/Source/Class/main.cpp.obj	e96f81d6d8ba9738
+23	3466	7563719006929991	CMakeFiles/TSP_3.dir/Source/Class/TabuSearch.cpp.obj	f161afc0908c18b1
+3466	3614	7563719041358294	TSP_3.exe	cf6c24f6fa05d637
+6	1955	7563722380739731	CMakeFiles/TSP_3.dir/Source/Class/Run.cpp.obj	10dd49c0680c305a
+1956	2078	7563722400237310	TSP_3.exe	cf6c24f6fa05d637
+6	1932	7563722768519933	CMakeFiles/TSP_3.dir/Source/Class/Run.cpp.obj	10dd49c0680c305a
+1932	2050	7563722787786365	TSP_3.exe	cf6c24f6fa05d637
+13	2178	7563731444198358	CMakeFiles/TSP_3.dir/Source/Class/Run.cpp.obj	10dd49c0680c305a
+6	2291	7563731444129030	CMakeFiles/TSP_3.dir/Source/Class/main.cpp.obj	e96f81d6d8ba9738
+18	3307	7563731444243544	CMakeFiles/TSP_3.dir/Source/Class/TabuSearch.cpp.obj	f161afc0908c18b1
+3307	3426	7563731477125757	TSP_3.exe	cf6c24f6fa05d637
+6	2997	7563731868377003	CMakeFiles/TSP_3.dir/Source/Class/TabuSearch.cpp.obj	f161afc0908c18b1
+2998	3116	7563731898290258	TSP_3.exe	cf6c24f6fa05d637
+17	2389	7563738323291379	CMakeFiles/TSP_3.dir/Source/Class/NearestNeighbour.cpp.obj	31713ae0c8981904
+13	2503	7563738323251379	CMakeFiles/TSP_3.dir/Source/Class/Run.cpp.obj	10dd49c0680c305a
+7	2731	7563738323186418	CMakeFiles/TSP_3.dir/Source/Class/main.cpp.obj	e96f81d6d8ba9738
+21	3595	7563738323332106	CMakeFiles/TSP_3.dir/Source/Class/TabuSearch.cpp.obj	f161afc0908c18b1
+3595	3719	7563738359072403	TSP_3.exe	cf6c24f6fa05d637
