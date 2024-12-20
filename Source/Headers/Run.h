@@ -1,5 +1,5 @@
 //
-// Created by Silver on 19.12.2024.
+// Created by Silver on 10.12.2024.
 //
 
 #ifndef TSP_3_RUN_H
@@ -22,16 +22,10 @@ private:
 
 
 
-//    void buildTree(int **matrix, int size, int start);
-
-
 public:
     void run(int ** graphMatrix, int graphSize, int repeats,int start,int killSwitch,const string& method,string output,string input,int opt,bool print,int iterations, int tabuSize, int ttl, int delta, int temperature, double coolingRate, int alpha);
 
 
-//    void addToTree(int **matrix, int size, Node* parent, int *visited);
-
-//    int caluculateBound(int **matrix, int siz,int visited[]);
 };
 
 

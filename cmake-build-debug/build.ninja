@@ -51,43 +51,43 @@ build cmake_object_order_depends_target_TSP_3: phony || CMakeFiles/TSP_3.dir
 
 build CMakeFiles/TSP_3.dir/Source/Class/main.cpp.obj: CXX_COMPILER__TSP_3_unscanned_Debug D$:/InteliJ/Projects/C++/PEA/TSP_3/Source/Class/main.cpp || cmake_object_order_depends_target_TSP_3
   DEP_FILE = CMakeFiles\TSP_3.dir\Source\Class\main.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  FLAGS = -static-libgcc -static-libstdc++ -static -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\TSP_3.dir
   OBJECT_FILE_DIR = CMakeFiles\TSP_3.dir\Source\Class
 
 build CMakeFiles/TSP_3.dir/Source/Libraries/ini.cpp.obj: CXX_COMPILER__TSP_3_unscanned_Debug D$:/InteliJ/Projects/C++/PEA/TSP_3/Source/Libraries/ini.cpp || cmake_object_order_depends_target_TSP_3
   DEP_FILE = CMakeFiles\TSP_3.dir\Source\Libraries\ini.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  FLAGS = -static-libgcc -static-libstdc++ -static -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\TSP_3.dir
   OBJECT_FILE_DIR = CMakeFiles\TSP_3.dir\Source\Libraries
 
 build CMakeFiles/TSP_3.dir/Source/Libraries/INIReader.cpp.obj: CXX_COMPILER__TSP_3_unscanned_Debug D$:/InteliJ/Projects/C++/PEA/TSP_3/Source/Libraries/INIReader.cpp || cmake_object_order_depends_target_TSP_3
   DEP_FILE = CMakeFiles\TSP_3.dir\Source\Libraries\INIReader.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  FLAGS = -static-libgcc -static-libstdc++ -static -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\TSP_3.dir
   OBJECT_FILE_DIR = CMakeFiles\TSP_3.dir\Source\Libraries
 
 build CMakeFiles/TSP_3.dir/Source/Class/Run.cpp.obj: CXX_COMPILER__TSP_3_unscanned_Debug D$:/InteliJ/Projects/C++/PEA/TSP_3/Source/Class/Run.cpp || cmake_object_order_depends_target_TSP_3
   DEP_FILE = CMakeFiles\TSP_3.dir\Source\Class\Run.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  FLAGS = -static-libgcc -static-libstdc++ -static -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\TSP_3.dir
   OBJECT_FILE_DIR = CMakeFiles\TSP_3.dir\Source\Class
 
 build CMakeFiles/TSP_3.dir/Source/Class/NearestNeighbour.cpp.obj: CXX_COMPILER__TSP_3_unscanned_Debug D$:/InteliJ/Projects/C++/PEA/TSP_3/Source/Class/NearestNeighbour.cpp || cmake_object_order_depends_target_TSP_3
   DEP_FILE = CMakeFiles\TSP_3.dir\Source\Class\NearestNeighbour.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  FLAGS = -static-libgcc -static-libstdc++ -static -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\TSP_3.dir
   OBJECT_FILE_DIR = CMakeFiles\TSP_3.dir\Source\Class
 
 build CMakeFiles/TSP_3.dir/Source/Class/TabuSearch.cpp.obj: CXX_COMPILER__TSP_3_unscanned_Debug D$:/InteliJ/Projects/C++/PEA/TSP_3/Source/Class/TabuSearch.cpp || cmake_object_order_depends_target_TSP_3
   DEP_FILE = CMakeFiles\TSP_3.dir\Source\Class\TabuSearch.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  FLAGS = -static-libgcc -static-libstdc++ -static -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\TSP_3.dir
   OBJECT_FILE_DIR = CMakeFiles\TSP_3.dir\Source\Class
 
 build CMakeFiles/TSP_3.dir/Source/Class/SimulatedAnnealing.cpp.obj: CXX_COMPILER__TSP_3_unscanned_Debug D$:/InteliJ/Projects/C++/PEA/TSP_3/Source/Class/SimulatedAnnealing.cpp || cmake_object_order_depends_target_TSP_3
   DEP_FILE = CMakeFiles\TSP_3.dir\Source\Class\SimulatedAnnealing.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  FLAGS = -static-libgcc -static-libstdc++ -static -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\TSP_3.dir
   OBJECT_FILE_DIR = CMakeFiles\TSP_3.dir\Source\Class
 
@@ -100,7 +100,8 @@ build CMakeFiles/TSP_3.dir/Source/Class/SimulatedAnnealing.cpp.obj: CXX_COMPILER
 # Link the executable TSP_3.exe
 
 build TSP_3.exe: CXX_EXECUTABLE_LINKER__TSP_3_Debug CMakeFiles/TSP_3.dir/Source/Class/main.cpp.obj CMakeFiles/TSP_3.dir/Source/Libraries/ini.cpp.obj CMakeFiles/TSP_3.dir/Source/Libraries/INIReader.cpp.obj CMakeFiles/TSP_3.dir/Source/Class/Run.cpp.obj CMakeFiles/TSP_3.dir/Source/Class/NearestNeighbour.cpp.obj CMakeFiles/TSP_3.dir/Source/Class/TabuSearch.cpp.obj CMakeFiles/TSP_3.dir/Source/Class/SimulatedAnnealing.cpp.obj
-  FLAGS = -g
+  FLAGS = -static-libgcc -static-libstdc++ -static -g
+  LINK_FLAGS = -static
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\TSP_3.dir
   POST_BUILD = cd .
