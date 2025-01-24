@@ -19,7 +19,7 @@ int SimulatedAnnealing::calculateTourCost(const vector<int>& tour, int **matrix)
     return cost;
 }
 
-vector<int> SimulatedAnnealing::getRandomNeighbor(const vector<int>& currentTour)
+vector<int> SimulatedAnnealing::getRandomNeighbor(const vector<int>& currentTour,int method)
 {
     vector<int> neighbor = currentTour;
 
@@ -30,7 +30,31 @@ vector<int> SimulatedAnnealing::getRandomNeighbor(const vector<int>& currentTour
     while (i == j) {
         j = distribution(generatorAnn);
     }
-    swap(neighbor[i], neighbor[j]);
+
+    if(method == 0)
+    {
+        swap(neighbor[i], neighbor[j]);
+    }
+    else if(method == 1)
+    {
+        if(i > j)
+            swap(i,j);
+
+        int fragmentLenght = (j - i) + 1;
+        int fragment[fragmentLenght];
+
+        int counter = 0;
+        for(int x = i; x<= j; x++)
+        {
+            fragment[j-i-counter] = neighbor[x];
+            counter++;
+        }
+        for(int x = i; x<= j; x++)
+        {
+            neighbor[x] = fragment[x-i];
+        }
+    }
+
 
     return neighbor;
 }
@@ -52,58 +76,100 @@ vector<vector<int>> SimulatedAnnealing::getAllNeighbours(const vector<int>& curr
     return allNeighbours;
 }
 
-ResultSave SimulatedAnnealing::runAnnealing(int **matrix, int size,int initTemperature, double coolingRate, int alpha, bool print, int killSwitch, int optimal)
+ResultSave SimulatedAnnealing::runAnnealing(int **matrix, int size,int initTemperature, double coolingRate, bool print, int killSwitch, int optimal,int firstMethod,int startingNode,double finalTemp,int iterations,int coolingMethod,int neighbourMethod)
 {
 
     uniform_real_distribution<double> randomValue(0.0f,1.0f);
     vector<int> currentSolution(size);
 
     double temperature = initTemperature;
+    int noImprovement=0;
+    int eraLenght = 50;
 
     startCounter();
-    for (int i = 0; i < size; i++)
+    if(firstMethod == 0)
     {
-        currentSolution[i] = i;
-
+        for (int i = 0; i < size; i++)
+        {
+            currentSolution[i] = i;
+        }
+        for (int i = 0; i < size; i++) {
+            std::uniform_int_distribution<int> destination(0, size - 1 - i);
+            int target = destination(generatorAnn);
+            if (target != (size - 1 - i))
+                swap(currentSolution[size - 1 - i], currentSolution[target]);
+        }
     }
-
-
-    for (int i = 0; i < size; i++)
+    else
     {
-        std::uniform_int_distribution<int> destination(0, size - 1 - i);
-        int target = destination(generatorAnn);
-        if (target != (size - 1 - i))
-            swap(currentSolution[size - 1 - i], currentSolution[target]);
+        NearestNeighbour nn;
+        nn.runNN(matrix,size,startingNode,false,killSwitch,false);
+        currentSolution = nn.getPath();
     }
 
     vector<int> bestSolution = currentSolution;
     int bestCost = calculateTourCost(currentSolution, matrix);
     vector<int> currentNeighbour;
     int currentCost = bestCost;
-
-    while(temperature > 1e-10)
+    int eraNumber = 0;
+    while(true)
     {
-        if(getCounter()>=killSwitch)
-        {
-            ResultSave rs(killSwitch,abs(bestCost-optimal),(abs(double(bestCost-optimal))/optimal));
-            return rs;
-        }
-        vector<int> neighbour = getRandomNeighbor(currentSolution);
-        int neighbourCost = calculateTourCost(neighbour,matrix);
-        double expValue = exp((currentCost - neighbourCost)/temperature);
-        if(neighbourCost < currentCost || expValue > randomValue(generatorAnn))
-        {
-            currentSolution = neighbour;
-            currentCost = neighbourCost;
 
-            if(currentCost < bestCost)
-            {
-                bestCost = currentCost;
-                bestSolution = currentSolution;
+        if(bestCost <= optimal )
+        {
+            if(print)
+                cout<<" Found optimal value!"<<endl;
+            break;
+        }
+
+        if(temperature <= finalTemp )
+        {
+            if(print)
+                cout<<" Cooled down!"<<endl;
+            break;
+        }
+
+
+        if(noImprovement >= iterations && iterations != -1)
+        {
+            if(print)
+                cout<<" No improvement limit reached! "<<endl;
+            break;
+        }
+
+        if( getCounter() >= killSwitch)
+        {
+            if(print)
+                cout<<" Time limit reached! "<<endl;
+            break;
+        }
+        int currentIteration = 0;
+        noImprovement++;
+        eraLenght = (int)(size/log(eraNumber+2)); // Decrease size with temp. drop
+        while(currentIteration < eraLenght)
+        {
+            vector<int> neighbour = getRandomNeighbor(currentSolution,neighbourMethod);
+            int neighbourCost = calculateTourCost(neighbour, matrix);
+            double expValue = exp((currentCost - neighbourCost) / temperature);
+
+            if (neighbourCost < currentCost || expValue > randomValue(generatorAnn)) {
+                currentSolution = neighbour;
+                currentCost = neighbourCost;
+
+                if (currentCost < bestCost) {
+                    bestCost = currentCost;
+                    bestSolution = currentSolution;
+                    noImprovement = 0;
+                }
             }
+            currentIteration++;
         }
+        eraNumber++;
+        if(coolingMethod == 0)
+            temperature = temperature * coolingRate;
+        else if(coolingMethod == 1)
+            temperature = (initTemperature/log(1+eraNumber));
 
-        temperature = temperature * coolingRate;
 
 //        cout<<temperature<<endl;
 

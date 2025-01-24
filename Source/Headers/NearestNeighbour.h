@@ -17,6 +17,7 @@ public:
     int getCost();
     double runNN(int ** graphMatrix, int v,int startingNode,bool print,int killSwitch,bool enchancedNN);
 
+    vector<int> getPath();
 };
 
 #endif //TSP_3_NEARESTNEIGHBOUR_H

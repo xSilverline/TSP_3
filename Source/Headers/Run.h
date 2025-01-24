@@ -23,7 +23,7 @@ private:
 
 
 public:
-    void run(int ** graphMatrix, int graphSize, int repeats,int start,int killSwitch,const string& method,string output,string input,int opt,bool print,int iterations, int tabuSize, int ttl, int delta, int temperature, double coolingRate, int alpha);
+    void run(int ** graphMatrix, int graphSize, int repeats,int start,int killSwitch,const string& method,string output,string input,int opt,bool print,int iterations, int tabuSize, int ttl, int delta, int temperature, double coolingRate, int firstMethod, double finalTemp,int coolingMethod, int neighbourMethod);
 
 
 };

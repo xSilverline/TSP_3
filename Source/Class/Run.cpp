@@ -19,7 +19,7 @@ class WithComma: public numpunct<char> // class for decimal numbers with comma
 protected: char do_decimal_point() const override { return ','; } // override the function that gives the decimal separator
 };
 
-void Run::run(int **matrix,int size, int reps,int start,int killSwitch,const string& method,string output,string input,int opt,bool print,int iterations, int tabuSize,int ttl, int delta, int temperature, double coolingRate, int alpha)
+void Run::run(int **matrix,int size, int reps,int start,int killSwitch,const string& method,string output,string input,int opt,bool print,int iterations, int tabuSize,int ttl, int delta, int temperature, double coolingRate, int firstMethod, double finalTemp,int coolingMethod, int neighbourMethod)
 {
     optimal = opt;
     inFileName = input;
@@ -82,7 +82,7 @@ void Run::run(int **matrix,int size, int reps,int start,int killSwitch,const str
         if (method == "ts")
         {
             TabuSearch tabuSearch;
-            ResultSave rs = tabuSearch.runSearch(matrix,size,iterations,tabuSize,0,ttl,delta,print,killSwitch,optimal);
+            ResultSave rs = tabuSearch.runSearch(matrix,size,iterations,tabuSize,0,ttl,delta,print,killSwitch,optimal, firstMethod, startingNode);
             oneTimeTS  = rs.time;
             timeTS+=oneTimeTS;
             if(print)
@@ -101,7 +101,7 @@ void Run::run(int **matrix,int size, int reps,int start,int killSwitch,const str
 
         }else if (method == "sa") {
             SimulatedAnnealing simulatedAnnealing;
-            ResultSave rs = simulatedAnnealing.runAnnealing(matrix,size,temperature,coolingRate, alpha, print,killSwitch,optimal);
+            ResultSave rs = simulatedAnnealing.runAnnealing(matrix,size,temperature,coolingRate, print,killSwitch,optimal,firstMethod,startingNode,finalTemp,iterations,coolingMethod,neighbourMethod);
             oneTimeSA= rs.time;
             timeSA += oneTimeSA;
             if(print)

@@ -22,7 +22,12 @@ int delta = 0;
 
 int temperature = 1000;
 double coolingRate = 0.91;
-int alpha = 0;
+
+int firstMethod = 0;
+double finalTemp;
+int coolingMethod;
+int neighbourMethod;
+
 
 string method;
 
@@ -81,8 +86,10 @@ int main()
     delta = configReader.GetInteger("Settings","aspiration",0);
     temperature = configReader.GetInteger("Settings","temperature",1000);
     coolingRate = configReader.GetReal("Settings","coolingRate",0.99);
-//    alpha = configReader.GetInteger("Settings","alpha",0);
-
+    finalTemp = configReader.GetReal("Settings","finalTemp",1e-10);
+    firstMethod = configReader.GetInteger("Settings","firstNodeMethod",0);
+    coolingMethod = configReader.GetInteger("Settings","coolingMethod",0);
+    neighbourMethod = configReader.GetInteger("Settings","neighbourMethod",0);
 
     cout<<endl<<endl;
     Run run{};
@@ -105,7 +112,7 @@ int main()
             outputFileName = outputf;
 
             createData();
-            run.run(graphMatrix,dataSize,repeats,startingNode,killSwitch,method,outputFileName,inputFileName,optimalVal,print,iterations,tabuSize,ttl,delta,temperature,coolingRate,alpha);
+            run.run(graphMatrix,dataSize,repeats,startingNode,killSwitch,method,outputFileName,inputFileName,optimalVal,print,iterations,tabuSize,ttl,delta,temperature,coolingRate,firstMethod,finalTemp,coolingMethod,neighbourMethod);
             cout<<"Output File: "<<outputFileName<<endl<<endl;
         }
     }
@@ -133,7 +140,7 @@ int main()
         cout<<"Optimal value: "<<optimalVal<<endl<<endl;
 
         cout<<" ---- RESULTS ----"<<endl<<endl;
-        run.run(graphMatrix,dataSize,repeats,startingNode,killSwitch,method,outputFileName,inputFileName,optimalVal,print,iterations,tabuSize,ttl,delta,temperature,coolingRate,alpha);
+        run.run(graphMatrix,dataSize,repeats,startingNode,killSwitch,method,outputFileName,inputFileName,optimalVal,print,iterations,tabuSize,ttl,delta,temperature,coolingRate,firstMethod,finalTemp,coolingMethod,neighbourMethod);
     }
 
 

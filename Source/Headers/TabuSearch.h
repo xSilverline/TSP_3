@@ -8,14 +8,15 @@
 
 #include <vector>
 #include "Structures.h"
+#include "NearestNeighbour.h"
 
 class TabuSearch {
 public:
 
-    ResultSave runSearch(int **matrix, int size, int iterations, int tabuSize, int method, int ttl, int delta, bool print, int killSwitch, int optimal);
+    ResultSave runSearch(int **matrix, int size, int iterations, int tabuSize, int method, int ttl, int delta, bool print, int killSwitch, int optimal,int firstMethod,int startingNode);
 
 private:
-    ResultSave runTabuSearch(int **matrix, int size, int iterations, int tabuSize,int ttl, int delta, bool print, int killSwitch, int optimal);
+    ResultSave runTabuSearch(int **matrix, int size, int iterations, int tabuSize,int ttl, int delta, bool print, int killSwitch, int optimal,int firstMethod,int startingNode);
 
     void runRandomTabuSearch(int **matrix, int size, int iterations, int tabuSize);
 

@@ -7,6 +7,8 @@
 int **nnMatrix = nullptr;
 int ** result = nullptr;
 int cost=0;
+int globalMinimal;
+int sizeOfMatrix = 0;
 
 double NearestNeighbour::runNN(int **graphMatrix, int v,int startingNode,bool print,int killSwitch,bool enchancedNN)
 {
@@ -23,6 +25,8 @@ double NearestNeighbour::runNN(int **graphMatrix, int v,int startingNode,bool pr
     int minimalNode = 0;
     string path;
     int currentNode = 0;
+    sizeOfMatrix = v;
+
 
     for(int i =0; i< v; i++)
     {
@@ -158,6 +162,7 @@ double NearestNeighbour::runNN(int **graphMatrix, int v,int startingNode,bool pr
     }
 
     double time = getCounter();
+    globalMinimal = minimalNode;
 //    std::cout<<currentNode<<" -> "<<startingNode<<" "<<graphMatrix[currentNode][startingNode]<<endl;
     if(print)
     {
@@ -184,3 +189,14 @@ int NearestNeighbour::getCost()
 {
     return cost;
 }
+
+vector<int> NearestNeighbour::getPath()
+{
+    vector<int> path;
+    for (int i = 0; i<sizeOfMatrix;i++)  {
+        path.push_back(result[globalMinimal][i]);
+    }
+
+    return path;
+}
+

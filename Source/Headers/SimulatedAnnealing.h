@@ -7,10 +7,11 @@
 
 
 #include "Structures.h"
+#include "NearestNeighbour.h"
 
 class SimulatedAnnealing {
 public:
-    ResultSave runAnnealing(int **matrix, int size, int temperature, double coolingRate, int alpha, bool print, int killSwitch, int optimal);
+    ResultSave runAnnealing(int **matrix, int size, int temperature, double coolingRate, bool print, int killSwitch, int optimal,int firstMethod,int startingNode,double finalTemp,int iterations,int coolingMethod,int neighbourMethod);
 
 
 private:
@@ -20,7 +21,7 @@ private:
 
     vector<vector<int>> getAllNeighbours(const vector<int> &currentTour);
 
-    vector<int> getRandomNeighbor(const vector<int> &currentTour);
+    vector<int> getRandomNeighbor(const vector<int> &currentTour,int method);
 };
 
 

@@ -1,13 +1,13 @@
 Input file	matrix_15.txt
 Optimal cost	291
-Time SA Rep 1	134,7968
-Time SA Rep 2	136,5675
-Time SA Rep 3	133,9939
-Time SA Rep 4	132,5395
-Time SA Rep 5	136,5180
-Time SA Rep 6	132,8854
-Time SA Rep 7	132,5162
-Time SA Rep 8	133,5495
-Time SA Rep 9	132,4524
-Time SA Rep 10	132,3044
-Avg Time SA 	133,8124
+Time SA Rep 1	1,1495
+Time SA Rep 2	0,9459
+Time SA Rep 3	2,7500
+Time SA Rep 4	1,0084
+Time SA Rep 5	0,9764
+Time SA Rep 6	3,0507
+Time SA Rep 7	1,2082
+Time SA Rep 8	3,6674
+Time SA Rep 9	1,0483
+Time SA Rep 10	1,2115
+Avg Time SA 	1,7016

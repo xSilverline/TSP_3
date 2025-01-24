@@ -120,43 +120,66 @@ void TabuSearch::runRandomTabuSearch(int **matrix, int size, int iterations,int 
 
 }
 
-ResultSave TabuSearch::runTabuSearch(int **matrix,int size,int iterations, int tabuSize, int ttl, int delta,bool print, int killSwitch, int optimal)
+ResultSave TabuSearch::runTabuSearch(int **matrix,int size,int iterations, int tabuSize, int ttl, int delta,bool print, int killSwitch, int optimal,int firstMethod,int startingNode)
 {
 //    int ttl = 10;
 //    int delta = 0;
     vector<int> currentSolution(size);
-
+    int noImprovement = 0;
 
 //    vector<vector<int>> tabuList;
     TabuList tabuList(tabuSize,ttl);
 
     startCounter();
-    for (int i = 0; i < size; i++)
-    {
-        currentSolution[i] = i;
 
+
+    if(firstMethod == 0)
+    {
+        for (int i = 0; i < size; i++)
+        {
+            currentSolution[i] = i;
+        }
+        for (int i = 0; i < size; i++) {
+            std::uniform_int_distribution<int> destination(0, size - 1 - i);
+            int target = destination(generator);
+            if (target != (size - 1 - i))
+                swap(currentSolution[size - 1 - i], currentSolution[target]);
+        }
     }
-
-
-    for (int i = 0; i < size; i++)
+    else
     {
-        std::uniform_int_distribution<int> destination(0, size - 1 - i);
-        int target = destination(generator);
-        if (target != (size - 1 - i))
-            swap(currentSolution[size - 1 - i], currentSolution[target]);
+        NearestNeighbour nn;
+        nn.runNN(matrix,size,startingNode,false,killSwitch,false);
+        currentSolution = nn.getPath();
     }
 
     vector<int> bestSolution = currentSolution;
     int bestCost = calculateTourCost(currentSolution, matrix);
     vector<int> currentNeighbour;
 
-    for (int iteration = 0; iteration < iterations; iteration++)
+    while(true)
     {
-        if(getCounter()>=killSwitch)
+
+        if(bestCost <= optimal )
         {
-            ResultSave result(0,optimal,1);
-            return result;
+            if(print)
+                cout<<" Found optimal value!"<<endl;
+            break;
         }
+        if(noImprovement >= iterations && iterations != -1)
+        {
+            if(print)
+                cout<<" No improvement limit reached! "<<endl;
+            break;
+        }
+        if( getCounter() >= killSwitch)
+        {
+            if(print)
+                cout<<" Time limit reached! "<<endl;
+            break;
+        }
+
+
         int candidateCost = INT_MAX;
         vector<int> candidateSolution;
         CandidatePair candidatePair{};
@@ -201,6 +224,7 @@ ResultSave TabuSearch::runTabuSearch(int **matrix,int size,int iterations, int t
             {
                 bestCost = candidateCost;
                 bestSolution = candidateSolution;
+                noImprovement = 0;
             }
 
             tabuList.addPair(candidatePair.from,candidatePair.to);
@@ -249,7 +273,7 @@ ResultSave TabuSearch::runTabuSearch(int **matrix,int size,int iterations, int t
 }
 
 
-ResultSave TabuSearch::runSearch(int **matrix, int size,int iterations,int tabuSize,int method, int ttl, int delta, bool print, int killSwitch, int optimal)
+ResultSave TabuSearch::runSearch(int **matrix, int size,int iterations,int tabuSize,int method, int ttl, int delta, bool print, int killSwitch, int optimal,int firstMethod,int startingNode)
 {
 
 //    if(method == 1)
@@ -259,6 +283,6 @@ ResultSave TabuSearch::runSearch(int **matrix, int size,int iterations,int tabuS
 //
 //    }
 
-    return runTabuSearch(matrix,size,iterations,tabuSize,ttl,delta,print,killSwitch,optimal);
+    return runTabuSearch(matrix,size,iterations,tabuSize,ttl,delta,print,killSwitch,optimal, firstMethod, startingNode);
 
 }
